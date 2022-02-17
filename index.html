@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+</head>
+
+<body>
+
+    <header class="container">
+        <hgroup>
+            <h1>Hello, hyperscript and htmx!</h1>
+        </hgroup>
+    </header>
+
+    <main class="container">
+        <section id="hello" class="text-center">
+            <h4>Click event</h4>
+            <button _="on click set x to 123 then log x" class="button primary">
+                Clik me to log!
+            </button>
+            <button class="red" _="on click toggle .red on me">
+                Clik me to toggle!
+            </button>
+        </section>
+
+        <section id="vars" class="text-center">
+            <h4>Variables</h4>
+            <button _="on click increment :x then put it into the next <output/>"
+                    class="button outline dark">
+                Clik me increment
+            </button>
+            <output>--</output>
+            <hr>
+            <button _="on click make an <hr/> then put it after me">Create
+                hrs!</button>
+        </section>
+
+        <section id="dom" class="text-center">
+            <h4>DOM</h4>
+            <button _="on click set my *width to 20rem" width="30rem"
+                    class="button outline dark">
+                Play with my width
+            </button>
+            <hr>
+            <button _="on click put ' Putting here' after me" class="button">Put
+                something</button>
+            <hr>
+            <button _="on click toggle the *display of the next <span/>"
+                    class="button">Toggle
+                hello</button><span class="tag mx-1">Hello, Pusha</span>
+        </section>
+
+        <section id="transitions" class="text-center">
+            <h4>Transitions</h4>
+            <button _="on click transition my *font-size to 3rem
+                            then wait 2s
+                            then transition my *font-size to initial"
+                    class="button">
+                Play with my size
+            </button>
+        </section>
+
+        <section id="measure" class="text-center">
+            <h4>Measure anf go</h4>
+            <button _="on click get my *computed-width
+                        then put `The width is ${the result}` into the next <output/>"
+                    class="button">
+                Measure my width
+            </button>
+            <output class="mx-1"></output>
+            <hr>
+            <button _="on click
+                        go to the top of the body smoothly
+                        wait 2 s
+                        go to the bottom of me smoothly" class="button">Take a
+                Trip!</button>
+        </section>
+
+
+        <section id="events" class="text-center">
+            <h4>Events</h4>
+            <button _="on click put 'Started...' into the next <output/>
+                  wait for a continue or 3s   -- wait for a continue event...
+                  if the result's type is 'continue'
+                    put 'Finished...' into the next <output/>
+                  otherwise
+                    put 'Timed Out...' into the next <output/>
+                  end
+                  wait 2s
+                  put '--' into the next <output/>">
+                Start
+            </button>
+            <button _="on click send continue to the previous <button/>">
+                Continue
+            </button>
+            <output>--</output>
+            <hr>
+            <div _="on mouseenter toggle .red until mouseleave">
+                Mouse Over Me To Turn Me Red!
+            </div>
+            <hr>
+            <button class="pulsar" _="on click repeat until event stop
+                                        add .pulse then settle
+                                        remove .pulse then settle">
+                Click me to Pulse...
+            </button>
+            <button _="on click send stop to the previous <button/>">
+                Cancel
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+    <footer class="text-center">***</footer>
+
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>
